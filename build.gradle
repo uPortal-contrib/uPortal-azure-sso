@@ -1,0 +1,31 @@
+description = "Azure SSO for uPortal Security"
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    /* -- included as transient dependencies from uPortal deps below --
+    compile "org.springframework:spring-web:${springVersion}"
+    compile "org.springframework:spring-webmvc:${springVersion}"
+    compile "org.springframework:spring-core:${springVersion}"
+     */
+    compile "org.jasig.portal:uPortal-core:${uPortalVersion}"
+    compile "org.jasig.portal:uPortal-security-core:${uPortalVersion}"
+    compile "org.jasig.portal:uPortal-security-mvc:${uPortalVersion}"
+    compile "org.jasig.portal:uPortal-events:${uPortalVersion}"
+    compile "org.slf4j:log4j-over-slf4j:${slf4jVersion}"
+    compile "org.slf4j:jcl-over-slf4j:${slf4jVersion}"
+    compile "org.slf4j:slf4j-api:${slf4jVersion}"
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    compileOnly "${portletApiDependency}"
+    compileOnly "${servletApiDependency}"
+    compile "com.microsoft.azure:msal4j:${msal4jVersion}"
+    compile "com.microsoft.graph:microsoft-graph:${microsoftGraphVersion}"
+    compile "com.nimbusds:nimbus-jose-jwt:${nimbusVersion}"
+}
